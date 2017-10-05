@@ -1,6 +1,6 @@
 {
-  "name": "metricsjs",
-  "version": "1.0.0",
+  "name": "telegram",
+  "version": "0.1.0",
   "description": "A client for packaging up metrics and minifying them before transport",
   "main": "dist/bundle.min.js",
   "scripts": {
