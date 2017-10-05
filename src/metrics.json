@@ -1,0 +1,91 @@
+{
+  "nested": {
+    "fsMetrics": {
+      "nested": {
+        "metric": {
+          "fields": {
+            "tag": {
+              "rule": "repeated",
+              "type": "uint32",
+              "id": 1
+            },
+            "type": {
+              "rule": "required",
+              "type": "MetricType",
+              "id": 2
+            },
+            "metricName": {
+              "rule": "required",
+              "type": "uint32",
+              "id": 3
+            },
+            "metricValueTiming": {
+              "type": "uint32",
+              "id": 4
+            },
+            "metricValueHistogram": {
+              "type": "float",
+              "id": 5
+            },
+            "metricValueSet": {
+              "type": "uint32",
+              "id": 6
+            },
+            "metricValueGauge": {
+              "type": "float",
+              "id": 7
+            },
+            "metricValueIncrement": {
+              "type": "int32",
+              "id": 8
+            },
+            "metricValueEvent": {
+              "type": "uint32",
+              "id": 9
+            }
+          },
+          "nested": {
+            "MetricType": {
+              "values": {
+                "TIMING": 0,
+                "SET": 1,
+                "GAUGE": 2,
+                "INCREMENT": 3,
+                "HISTOGRAM": 4,
+                "DECREMENT": 5,
+                "EVENT": 6
+              }
+            }
+          }
+        },
+        "fsMetricsMessage": {
+          "fields": {
+            "codeSha": {
+              "type": "string",
+              "id": 1
+            },
+            "globalTag": {
+              "rule": "repeated",
+              "type": "string",
+              "id": 2
+            },
+            "aMetric": {
+              "rule": "repeated",
+              "type": "metric",
+              "id": 3
+            },
+            "stringDict": {
+              "keyType": "uint32",
+              "type": "string",
+              "id": 4
+            },
+            "prefix": {
+              "type": "string",
+              "id": 5
+            }
+          }
+        }
+      }
+    }
+  }
+}

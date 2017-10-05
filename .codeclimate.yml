@@ -1,0 +1,31 @@
+---
+engines:
+  eslint:
+    enabled: true
+    config:
+      extensions:
+        - '.js'
+        - '.es6'
+  fixme:
+    enabled: true
+    config:
+      strings:
+      - FIXME
+      - BUG
+      - TODO
+  nodesecurity:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.es6"
+  - "**.jsx"
+  - "**.scss"
+exclude_paths:
+- config/**/*
+- spec/**/*
+- test/**/*
+- vendor/**/*
+- mock/**/*
+- "**.spec.js"

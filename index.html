@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <title>test</title>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <script src="/dist/bundle.min.js"></script>
+    <script>
+const TIMING_RANGES = {
+  'page.digested': [
+    {
+      from: 'page.resolved',
+      metric: 'ui.digested'
+    },
+    {
+      from: 'navigationStart',
+      metric: 'ui.timeToFirstDigest',
+      once: true
+    }
+  ]
+}
+const ignoredRequests = /^https?:\/\/(www\.google-analytics|\d+\.log\.optimizely|fullscreen\.\w+\.omtrdc|fullscreen\.demdex|(?:[\w-]+\.fullscreen\.com|localhost:\d+)\/(?:api\/metrics|api\/beacon)|media\.fullscreen.com|translate.googleapis)/
+const urlWhitelist = /^[^h]|(?:^https?:\/\/[^.]*\.?(?:fullscreen\.|drmtoday|facebook|t\.co|twitter|recurly|googleapis|maxcdn|localhost|gstatic|jquery|optimizely))/
+      window.metrics = new window.fsMetrics({
+        blackList: ignoredRequests,
+        whiteList: urlWhitelist,
+        metricsServer: 'https://metrics.fullscreen.net/api/metrics'
+      })
+      window.metrics.queueMetric(3, 'foo', 1)
+    </script>
+  </body>
+</html>
