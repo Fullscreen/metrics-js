@@ -1,12 +1,12 @@
 /* eslint-disable no-return-assign */
-import protobuf from 'protobufjs/dist/light/protobuf.min'
+import protobuf from 'protobufjs/dist/light/protobuf'
 import jsonProtobufDescriptor from './metrics.json'
 import featureAvailable from './feature-detection-service.js'
 
 function invertObjectKV (json) {
   const flipped = {}
-  for (let key in json) {
-    flipped[json[key]] = key
+  for (let k in json) {
+    flipped[json[k]] = k
   }
   return flipped
 }
