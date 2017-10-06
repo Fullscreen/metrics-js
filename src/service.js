@@ -1,5 +1,5 @@
 /* eslint-disable no-return-assign */
-import protobuf from 'protobufjs/dist/light/protobuf'
+import protobuf from 'protobufjs/dist/light/protobuf.min'
 import jsonProtobufDescriptor from './metrics.json'
 import featureAvailable from './feature-detection-service.js'
 
