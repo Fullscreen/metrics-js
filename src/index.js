@@ -1,4 +1,4 @@
-import { fsMetrics } from './service'
+import fsMetrics from './service'
 
 export default fsMetrics
 
