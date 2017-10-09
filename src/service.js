@@ -2,31 +2,7 @@
 import protobuf from 'protobufjs/dist/light/protobuf.min'
 import jsonProtobufDescriptor from './metrics.json'
 import featureAvailable from './feature-detection-service.js'
-
-function invertObjectKV (json) {
-  const flipped = {}
-  for (let k in json) {
-    flipped[json[k]] = k
-  }
-  return flipped
-}
-
-// metric is the name of the range, the key is the end marker
-// from is the start of the range
-// an end marker can have more than one metric/start
-// const TIMING_RANGES = {
-  // 'page.digested': [
-    // {
-      // from: 'page.resolved',
-      // metric: 'ui.digested'
-    // },
-    // {
-      // from: 'navigationStart',
-      // metric: 'ui.timeToFirstDigest',
-      // once: true
-    // }
-  // ]
-// }
+import invertObjectKV from 'lodash.invert'
 
 function isDefined (value) {
   return typeof value !== 'undefined'
@@ -39,7 +15,7 @@ let metricsMessage = protobuf.Root.fromJSON(jsonProtobufDescriptor).lookupType('
 // pass in ignored urls
 // pass in whiteList of resources
 
-export default class FsMetrics {
+export class FsMetrics {
   constructor ({
     $window = window,
     $timeout = window.setTimeout,
@@ -206,7 +182,7 @@ export default class FsMetrics {
       // if (stat && !isDefined(this.metricNames[stat])) {
         stat += ''
         return iv + stat
-        .replace(/[^\w:.-]+/g, '_') // turn statsc illegal chars into _
+          .replace(/[^\w:.-]+/g, '_') // turn statsc illegal chars into _
       } else if (stat && isDefined(this.metricNames[stat])) {
         return this.metricNames[stat]
       } else {
