@@ -17,11 +17,9 @@
     "url": "https://github.com/Fullscreen/metrics-js/issues"
   },
   "homepage": "https://github.com/Fullscreen/metrics-js#readme",
-  "dependencies": {
-    "protobufjs": "~6.8.0",
-    "lodash.invert": "^4.3.0"
-  },
   "devDependencies": {
+    "protobufjs": "~6.8.0",
+    "lodash.invert": "^4.3.0",
     "babel-preset-es2015": "^6.24.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",

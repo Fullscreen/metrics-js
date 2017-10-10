@@ -272,7 +272,6 @@ export class FsMetrics {
   performanceTiming (entry) {
     // only send whitelisted urls, ignore blacklisted
     if (!this.whiteList.test(entry.name) || this.blackList.test(entry.name)) {
-      console.log(entry.name)
       return
     }
 
@@ -352,9 +351,15 @@ export class FsMetrics {
     }
     metric.tags = this.encodeTags(metric.tags)
     metric.key = this.encodeStat(metric.key)
+    if (!metric.key) {
+      console.warn('empty key')
+    }
 
     // turn strings into numbers and send the dictionary along
     metric.key = this.buildDict(metric.key, stringDict)
+    if (!metric.key) {
+      console.warn('empty key2')
+    }
     metric.tags = metric.tags.map(string => this.buildDict(string, stringDict))
 
     if (typeof metric.val === 'string') {
@@ -372,7 +377,7 @@ export class FsMetrics {
 
     const stringDict = {}
     Object.defineProperty(stringDict, 'id', {
-      value: 0,
+      value: 1,
       writable: true,
       configurable: false,
       enumerable: false
